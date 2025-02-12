@@ -7,7 +7,11 @@ class StockGenerationRequestDto(BaseModel):
     content: str
 
 
-class StockGenerationResponseDto(BaseModel):
+class StockDto(BaseModel):
     stock_name: str
     ticker_symbol: str
     market_name: str
+
+class StockGenerationResponseDto(BaseModel):
+    status : int
+    generated_stocks : list[StockDto]
