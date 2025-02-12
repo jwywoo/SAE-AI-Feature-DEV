@@ -9,17 +9,16 @@ from stock.prompts.generation_prompt import GenerationPrompt
 SEP = "[SEP]"
 
 
-def stock_generation_service(request: StockGenerationRequestDto):
-    page_data = "Title: " + request.title + SEP \
-        + "URL" + request.url + SEP \
-        + "Page Information :" + text_cleaning(request.content)
+async def stock_generation_service(request: StockGenerationRequestDto):
+    cleaned_content = text_cleaning(request.content) 
+    page_data = f"Title: {request.title} {SEP} URL: {request.url} {SEP} Page Information: {cleaned_content}"
 
     # Generation
     # System Prompt
     generation_prompt = GenerationPrompt
     system_prompt = generation_prompt.stock_gen_system_prompt.value
 
-    generated_stocks = stock_generation(page_data, system_prompt)
-    responseDto = stock_response_gen(generated_result=generated_stocks)
+    generated_stocks = await stock_generation(page_data, system_prompt)
+    responseDto = await stock_response_gen(generated_result=generated_stocks)
 
     return responseDto
