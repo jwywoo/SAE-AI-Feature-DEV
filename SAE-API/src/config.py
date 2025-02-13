@@ -1,9 +1,12 @@
+import os
 from functools import lru_cache
 from pydantic_settings import BaseSettings
+from dotenv import load_dotenv
 
+load_dotenv()
 
 class Settings(BaseSettings):
-    OPENAI_API_KEY: str
+    OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY")
 
     class Config:
         env_file = ".env"
