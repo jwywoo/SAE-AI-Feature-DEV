@@ -2,7 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,linux,windows,python,visualstudiocode,dotenv,jupyternotebooks
 
 ### dotenv ###
-.env
+*.env
 ### virtual env##
 .*_venv
 *.sae-api-venv
