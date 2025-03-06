@@ -1,5 +1,6 @@
 from stock.methods.preprocessing_method import text_cleaning
 from stock.methods.generation_method import stock_generation, stock_response_gen
+from stock.methods.test_case_method import test_case_save
 
 from stock.schemas import StockGenerationRequestDto
 
@@ -22,3 +23,7 @@ async def stock_generation_service(request: StockGenerationRequestDto):
     responseDto = await stock_response_gen(generated_result=generated_stocks)
 
     return responseDto
+
+async def test_case_collector_service(request: StockGenerationRequestDto) -> bool:
+    cleaned_content = text_cleaning(request.content)
+    return test_case_save(request.title, request.url, cleaned_content)
