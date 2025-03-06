@@ -6,7 +6,11 @@
 ### virtual env##
 .*_venv
 *.sae-api-venv
+*.performance-venv
 model
+
+### Test Cases ###
+*.csv
 
 ### Indices ###
 *.faiss
