@@ -7,6 +7,7 @@
 .*_venv
 *.sae-api-venv
 *.performance-venv
+*.crawler-venv
 model
 
 ### Test Cases ###
