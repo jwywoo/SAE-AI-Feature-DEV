@@ -8,6 +8,7 @@
 *.sae-api-venv
 *.performance-venv
 *.crawler-venv
+*.langgraph_test_env
 model
 
 ### Test Cases ###
