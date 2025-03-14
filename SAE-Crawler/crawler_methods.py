@@ -18,10 +18,11 @@ load_dotenv()
 
 ## Common Methods
 ### Getting Data
-def load_csv(csv_name, dir="data"):
+def load_csv(csv_name, dir="SAE-Crawler/data"):
     print("Getting CSV ")
     csv_path = os.path.join(dir,csv_name)
     try:
+        print(os.path.exists(csv_path))
         if os.path.exists(csv_path):
             return pd.read_csv(csv_path)
         else:
@@ -30,7 +31,7 @@ def load_csv(csv_name, dir="data"):
         print("Failed to load, csv not available")
         return None
 
-def save_csv(csv_name, modified_df, dir="data"):
+def save_csv(csv_name, modified_df, dir="SAE-Crawler/data"):
     path_name = os.path.join(dir, csv_name)
     modified_df.to_csv(path_name, index=False)
 
